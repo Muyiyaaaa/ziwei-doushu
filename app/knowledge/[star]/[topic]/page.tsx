@@ -24,7 +24,7 @@ import {
   STAR_TO_SLUG,
   SLUG_TO_STAR,
 } from '@/lib/seo/knowledge';
-import { SITE_URL } from '@/lib/site';
+import { SITE_BASE_URL } from '@/lib/site';
 
 // 允许动态参数：如果某个 star/topic 组合不在 generateStaticParams 列表中
 // 也允许运行时按需渲染，避免中文 URL 编码问题导致 404
@@ -54,10 +54,10 @@ export async function generateMetadata({ params }: { params: Promise<{ star: str
       title,
       description,
       type: 'article',
-      url: `${SITE_URL}/knowledge/${slug}/${topic}`,
+      url: `${SITE_BASE_URL}/knowledge/${slug}/${topic}`,
     },
     alternates: {
-      canonical: `${SITE_URL}/knowledge/${slug}/${topic}`,
+      canonical: `${SITE_BASE_URL}/knowledge/${slug}/${topic}`,
     },
     keywords: [
       '紫微斗数', '倪海厦', star, data.palaceName, data.topicLabel,
@@ -89,11 +89,11 @@ export default async function KnowledgePage({ params }: { params: Promise<{ star
     publisher: {
       '@type': 'Organization',
       name: '紫微研究',
-      url: SITE_URL,
+      url: SITE_BASE_URL,
     },
     datePublished: '2026-04-28',
     dateModified: '2026-04-28',
-    mainEntityOfPage: `${SITE_URL}/knowledge/${slug}/${topic}`,
+    mainEntityOfPage: `${SITE_BASE_URL}/knowledge/${slug}/${topic}`,
     articleSection: '紫微斗数 · 倪海厦体系',
     keywords: [`紫微斗数`, star, data.palaceName, data.topicLabel].join(', '),
   };

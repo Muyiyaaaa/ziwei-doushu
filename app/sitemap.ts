@@ -10,12 +10,12 @@
 import type { MetadataRoute } from 'next';
 import { ALL_BOOKS } from '@/lib/classics';
 import { getAllKnowledgeRoutes } from '@/lib/seo/knowledge';
-import { SITE_URL } from '@/lib/site';
+import { SITE_BASE_URL } from '@/lib/site';
 
 // 静态导出（output: export）必需：声明该路由为纯静态生成
 export const dynamic = 'force-static';
 
-const BASE_URL = SITE_URL;
+const BASE_URL = SITE_BASE_URL;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastmod = new Date('2026-04-28');
