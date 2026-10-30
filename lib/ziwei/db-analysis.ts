@@ -48,7 +48,12 @@ export const TOPIC_LABEL: Record<TopicKey, string> = {
 };
 
 /**
- * 论断内容库（14 主星 × 各宫位语境的详细断语）——核心内容，不在开源范围。
- * 此处置空；知识库 SEO 页因 `exists=false` 生成 0 条静态详情路由，但列表框架仍可运行。
+ * 论断内容库（14 主星 × 各宫位语境的详细断语）
+ *
+ * 线上原版断语库不开源；此处接入开源重建版（lib/ziwei/star-content.ts）：
+ * 以《紫微斗数全书》公版通识为基础，按 14 星 × 13 主题生成四段式断语，
+ * 使知识库 SEO 页可完整静态生成（此前 STAR_DB 置空会导致 0 条路由）。
  */
-export const STAR_DB: Record<string, unknown> = {};
+import { buildStarDb } from './star-content';
+
+export const STAR_DB: Record<string, unknown> = buildStarDb();
